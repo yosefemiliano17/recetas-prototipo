@@ -2,7 +2,9 @@
 
 namespace App\Dominio;
 
-class Receta {
+use App\Dominio\MedicamentoDomain; 
+
+class RecetaDomain {
     
     private array $medicamentos;
 
@@ -10,7 +12,7 @@ class Receta {
         $this->medicamentos = [];
     }
 
-    public function agregarMedicamento(Medicamento $medicamento): void {
+    public function agregarMedicamento(MedicamentoDomain $medicamento): void {
         $this->medicamentos[] = $medicamento;
     }
 

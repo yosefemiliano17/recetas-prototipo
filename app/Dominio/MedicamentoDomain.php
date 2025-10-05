@@ -2,7 +2,7 @@
 
 namespace App\Dominio;
 
-class Medicamento {
+class MedicamentoDomain {
      private int $id;
      private string $nombre; 
      private float $dosis; 
