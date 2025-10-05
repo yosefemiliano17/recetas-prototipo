@@ -3,14 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Inventario extends Model {
+class Inventario extends Model
+{
 
-    use HasFactory; 
+    use HasFactory;
 
-    protected $table = 'inventario'; 
-    public $incrementing = false; 
+    protected $table = 'inventario';
+    public $incrementing = false;
+    protected $primaryKey = ['idSucursal', 'idMedicamento'];
 
     protected $fillable = [
         'idInventario',
@@ -19,6 +21,8 @@ class Inventario extends Model {
         'stockActual',
         'stockMinimo',
         'stockMaximo'
-    ]; 
+    ];
+    public $timestamps = false;
+
 
 }

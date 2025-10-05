@@ -2,6 +2,9 @@
 
 namespace App\Dominio;
 
+use App\Dominio\MedicamentoDomain; 
+use App\Servicios\BaseDeDatos;
+
 class InventarioDomain {
     private int $idSucursal;
 
@@ -21,21 +24,16 @@ class InventarioDomain {
     public function setMedicamentos(array $medicamentos): void {
         $this->medicamentos = $medicamentos;
     }
-    public function obtenerExistencias($medicamento): int {
+    public function obtenerExistencias(MedicamentoDomain $medicamento): int {
         $medId = $medicamento->getId();
-        return $this->medicamentos[$medId]['stockActual'] ?? 0;
+        //para no buscar un medicamento que no existe en este inventario
+        if(isset($this->medicamentos[$medId]) === false) {
+            return 0; 
+        }
+        return $this->medicamentos[$medId]['stockActual'];
     }
 
-    //checar
-    public function restarExistencias($medicamento, int $cantidad): void {
-        $medId = $medicamento->getId();
-        if (isset($this->medicamentos[$medId])) {
-            $this->medicamentos[$medId]['stockActual'] -= $cantidad;
-            if ($this->medicamentos[$medId]['stockActual'] < 0) {
-                $this->medicamentos[$medId]['stockActual'] = 0; 
-            }
-        } else {
-            throw new Exception("El medicamento ID: $medId no existe en el inventario.");
-        }
+    public function restarExistencias(MedicamentoDomain $medicamento, int $cantidad): void {
+        BaseDeDatos::getInstance()->updateExistencias($this->idSucursal, $medicamento, $cantidad);
     }
 }

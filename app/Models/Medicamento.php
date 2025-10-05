@@ -3,18 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Medicamento extends Model {
-    use HasFactory; 
+class Medicamento extends Model
+{
+    use HasFactory;
 
-    protected $table = 'medicamentos'; 
+    protected $table = 'medicamentos';
+    protected $primaryKey = 'idMedicamento';
 
-    public $incrementing = false; 
+    public $incrementing = false;
 
     protected $fillable = [
         'idMedicamento',
         'nombre',
         'gramaje'
-    ]; 
+    ];
+
+    public $timestamps = false;
+
 }

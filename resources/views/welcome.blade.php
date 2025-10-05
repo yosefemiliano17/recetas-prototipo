@@ -24,7 +24,6 @@
                 <label for="sucursal-select" class="block text-sm font-medium text-gray-700 mb-1">Sucursal</label>
                 <select id="sucursal-select" class="w-full bg-white border border-gray-300 rounded-lg p-2.5 shadow-sm">
                     <option value="">-- Elige una sucursal --</option>
-                    {{-- Asumiendo que tus objetos SucursalDomain tienen getId() y getNombre() --}}
                     @foreach($sucursales as $sucursal)
                         <option value="{{ $sucursal->getId() }}">{{ $sucursal->getNombre() }}</option>
                     @endforeach
