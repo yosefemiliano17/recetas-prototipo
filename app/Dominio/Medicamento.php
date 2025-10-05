@@ -3,9 +3,9 @@
 namespace App\Dominio;
 
 class Medicamento {
-
-    private string $nombre; 
-    private float $dosis; 
+     private int $id;
+     private string $nombre; 
+     private float $dosis; 
     
     public function __construct(string $nombre, float $dosis) {
         $this->nombre = $nombre;

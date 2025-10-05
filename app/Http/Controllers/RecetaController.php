@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dominio\Sucursal;
 
-class ControladorSucursal extends Controller
+class RecetaController extends Controller
 {
     private Sucursal $sucursal;
 
