@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- El título puede venir de la sucursal o ser genérico --}}
     <title>Registrar Nueva Receta - Sucursal {{ $sucursal->getIdSucursal() }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -40,7 +39,7 @@
         @endif
 
         <h2 class="text-lg font-semibold text-left text-gray-600 mb-2">Sucursal</h2>
-        <input type="text" disabled value="Sucursal del Sur (ID: {{ $sucursal->getIdSucursal() }})"
+        <input type="text" disabled value="Sucursal(ID: {{ $sucursal->getIdSucursal() }})"
             class="w-full bg-gray-100 border border-gray-300 rounded-lg p-2.5 mb-6">
 
         <form action="{{ route('recetas.store') }}" method="POST" id="receta-form">

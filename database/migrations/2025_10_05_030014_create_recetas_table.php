@@ -28,13 +28,12 @@ return new class extends Migration
         }); 
 
         Schema::create('inventario' ,function (BluePrint $table) {
-            $table->integer('idInventario');
             $table->integer('idSucursal');
             $table->integer('idMedicamento');
             $table->integer('stockActual');
             $table->integer('stockMinimo');
             $table->integer('stockMaximo');
-            $table->primary(['idInventario', 'idSucursal', 'idMedicamento']); 
+            $table->primary([ 'idSucursal', 'idMedicamento']); 
             $table->foreign('idSucursal')->references('idSucursal')->on('sucursales')->onDelete('cascade');
             $table->foreign('idMedicamento')->references('idMedicamento')->on('medicamentos')->onDelete('cascade');
         }); 

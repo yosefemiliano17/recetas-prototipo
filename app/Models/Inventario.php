@@ -15,7 +15,6 @@ class Inventario extends Model
     protected $primaryKey = ['idSucursal', 'idMedicamento'];
 
     protected $fillable = [
-        'idInventario',
         'idSucursal',
         'idMedicamento',
         'stockActual',

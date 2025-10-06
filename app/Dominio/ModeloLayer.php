@@ -15,14 +15,9 @@ class ModeloLayer {
     $this->bd->beginTransaction(); 
     try {
         foreach ($receta->getMedicamentos() as $medicamento) {
-            $medId = $medicamento->getId();   
             $cantidad = $medicamento->getCantidad(); 
             $nombre = $medicamento->getNombre();
-    
-            
             $stockActual = $sucursal->getInventario()->obtenerExistencias($medicamento);
-
-          
             if ($stockActual < $cantidad) {
                 throw new \Exception("No hay suficiente stock para el medicamento: $nombre");
             }
@@ -32,11 +27,7 @@ class ModeloLayer {
         
         
         $this->bd->commitTransaction();
-        //regresar mensaje de exito a la vista
-
-
-
-
+        //regresar mensaje de exito a la vista (No olvidar )
     } catch(\Exception $e) {
         $this->bd->rollbackTransaction();
         throw $e; 

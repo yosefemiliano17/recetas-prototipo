@@ -7,7 +7,6 @@ use App\Servicios\BaseDeDatos;
 
 class InventarioDomain {
     private int $idSucursal;
-
     private array $medicamentos; 
     
     public function __construct(int $idSucursal, array $medicamentos = []) {
@@ -26,7 +25,6 @@ class InventarioDomain {
     }
     public function obtenerExistencias(MedicamentoDomain $medicamento): int {
         $medId = $medicamento->getId();
-        //para no buscar un medicamento que no existe en este inventario
         if(isset($this->medicamentos[$medId]) === false) {
             return 0; 
         }

@@ -39,10 +39,8 @@
             sucursalSelect.addEventListener('change', function () {
                 const sucursalId = this.value;
 
-                // Si se selecciona una sucursal válida, redirige a la página de detalle
                 if (sucursalId) {
-                    // Construye la URL usando la ruta 'recetas.show'
-                    // y redirige al usuario a esa nueva página.
+                    
                     window.location.href = `/sucursal/${sucursalId}`;
                 }
             });
